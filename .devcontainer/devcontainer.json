@@ -5,6 +5,9 @@
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
+	"runArgs": [
+		"--network=host"
+	],
 	"postCreateCommand": "pwd && ls /workspaces/xpla-lcd-cache && sh /workspaces/xpla-lcd-cache/.devcontainer/postCreateCommand.sh",
 	"mounts": [
 		"type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock"
