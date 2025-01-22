@@ -27,5 +27,8 @@ shell--xpla-lcd-cache--container--local:
 tail-nginx-access-log:
 	docker logs xpla-lcd-cache--local -f
 
+test-origin:
+	curl -i https://dimension-lcd.xpla.dev/ethermint/evm/v1/base_fee
+
 test-proxy-work:
-	curl http://localhost:10080/cosmos/base/tendermint/v1beta1/node_info | jq
+	curl -i http://localhost:10080/ethermint/evm/v1/base_fee

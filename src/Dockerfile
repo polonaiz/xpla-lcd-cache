@@ -5,3 +5,6 @@ RUN apt-get update && \
 
 COPY ./etc/nginx/nginx.conf /etc/nginx
 COPY ./etc/nginx/conf.d/default.conf /etc/nginx/conf.d
+
+RUN mkdir -p /data/lib/xpla-lcd-cache && \
+    chown nginx:nginx /data/lib/xpla-lcd-cache
