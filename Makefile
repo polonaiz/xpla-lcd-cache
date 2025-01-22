@@ -1,4 +1,4 @@
-IMAGE_TAG=polonaiz/xpla-lcd-cache:20250102
+IMAGE_TAG=polonaiz/xpla-lcd-cache:20250122
 IMAGE_TAG_LATEST=polonaiz/xpla-lcd-cache:latest
 CONTAINER_NAME__LOCAL=xpla-lcd-cache--local
 
@@ -23,3 +23,9 @@ stop--xpla-lcd-cache--container--local:
 
 shell--xpla-lcd-cache--container--local:
 	docker exec -it ${CONTAINER_NAME__LOCAL} bash
+
+tail-nginx-access-log:
+	docker logs xpla-lcd-cache--local -f
+
+test-proxy-work:
+	curl http://localhost:10080/cosmos/base/tendermint/v1beta1/node_info | jq
